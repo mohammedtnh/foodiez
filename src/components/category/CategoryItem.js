@@ -6,7 +6,7 @@ const CategoryItem = (props) => {
 
   return (
     <ItemWrapper>
-      <Link to={`/categories/${category.slug}`}>
+      <Link to={`/categories/${category.id}`}>
         <img src={category.image} alt={category.name} />
       </Link>
       <p> {category.name}</p>
