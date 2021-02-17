@@ -21,7 +21,10 @@ export const createIngredient = (newIngredient) => {
       const formData = new FormData();
       for (const key in newIngredient) formData.append(key, newIngredient[key]);
 
-      const res = await instance.post(`ingredients`, formData);
+      const res = await instance.post(
+        `/categories/${newIngredient.categoryId}/ingredients`,
+        formData
+      );
       dispatch({
         type: types.CREATE_INGREDIENT,
         payload: { newIngredient: res.data },
