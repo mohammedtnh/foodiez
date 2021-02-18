@@ -1,6 +1,7 @@
 import { Route, Switch } from "react-router";
 import IngredientForm from "./ingredient/IngredientForm";
 import CategoryForm from "./category/CategoryForm";
+import RecipeForm from "./recipe/RecipeForm";
 import IngredientList from "./ingredient/IngredientList";
 import CategoryList from "./category/CategoryList";
 import RecipeList from "./recipe/RecipeList";
@@ -19,6 +20,10 @@ const Routes = () => {
 
       <Route path="/categories/new">
         <CategoryForm />
+      </Route>
+
+      <Route path="/recipes/new">
+        <RecipeForm />
       </Route>
 
       <Route path="/categories/:categoryId">

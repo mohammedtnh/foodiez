@@ -5,27 +5,29 @@ import IngredientItem from "../ingredient/IngredientItem";
 const RecipeItem = (props) => {
   const recipe = props.recipe;
   const ingredients = props.ingredients;
-  const recipeIngredients = recipe.ingredients;
 
-  const recipeIngredientList = ingredients.filter((ingredient) => {
-    return recipeIngredients.some((_ingredient) => {
-      return ingredient.id === _ingredient.id;
-    });
-  });
+  const getRecipeIngredients = () => {
+    if (recipe.ingredients) {
+      const recipeIngredients = recipe.ingredients;
 
-  const finalList = recipeIngredientList.map((ingredient) => (
-    <IngredientItem key={ingredient.id} ingredient={ingredient} />
-  ));
+      const recipeIngredientList = ingredients.filter((ingredient) => {
+        return recipeIngredients.some((_ingredient) => {
+          return ingredient.id === _ingredient.id;
+        });
+      });
 
-  console.log("1recipeIngredients::::", recipeIngredients);
-  console.log("2recipeIngredientList::::", recipeIngredientList);
+      const finalList = recipeIngredientList.map((ingredient) => (
+        <IngredientItem key={ingredient.id} ingredient={ingredient} />
+      ));
+      return finalList;
+    }
+  };
+
   return (
     <ItemWrapper>
-      <Link to={`/recipes/${recipe.id}`}>
-        <img src={recipe.image} alt={recipe.name} />
-      </Link>
+      <img src={recipe.image} alt={recipe.name} />
       <p> {recipe.name}</p>
-      <p>{finalList}</p>
+      <p>{getRecipeIngredients()}</p>
     </ItemWrapper>
   );
 };
