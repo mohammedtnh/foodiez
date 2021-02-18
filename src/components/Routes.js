@@ -3,6 +3,7 @@ import IngredientForm from "./ingredient/IngredientForm";
 import CategoryForm from "./category/CategoryForm";
 import IngredientList from "./ingredient/IngredientList";
 import CategoryList from "./category/CategoryList";
+import RecipeList from "./recipe/RecipeList";
 import { useSelector } from "react-redux";
 
 const Routes = () => {
@@ -26,6 +27,10 @@ const Routes = () => {
 
       <Route path="/categories">
         <CategoryList />
+      </Route>
+
+      <Route path="/recipes">
+        <RecipeList ingredients={ingredients} />
       </Route>
     </Switch>
   );

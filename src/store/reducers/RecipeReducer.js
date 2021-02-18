@@ -1,4 +1,3 @@
-import slugify from "react-slugify";
 import * as types from "../actions/actionTypes";
 
 const initialState = {
@@ -16,8 +15,6 @@ const reducer = (state = initialState, action) => {
       };
     case types.CREATE_RECIPE:
       const { newRecipe } = action.payload;
-      newRecipe.id = state.recipes[state.recipes.length - 1].id + 1;
-      newRecipe.slug = slugify(newRecipe.name, { lower: true });
       return {
         ...state,
         recipes: [...state.recipes, newRecipe],

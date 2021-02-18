@@ -21,7 +21,7 @@ export const createRecipe = (newRecipe) => {
       const formData = new FormData();
       for (const key in newRecipe) formData.append(key, newRecipe[key]);
 
-      const res = await instance.post(`recipes`, formData);
+      const res = await instance.post(`/recipes`, formData);
       dispatch({
         type: types.CREATE_RECIPE,
         payload: { newRecipe: res.data },

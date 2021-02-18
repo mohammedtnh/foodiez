@@ -1,4 +1,3 @@
-import slugify from "react-slugify";
 import * as types from "../actions/actionTypes";
 
 const initialState = {
@@ -16,8 +15,6 @@ const reducer = (state = initialState, action) => {
       };
     case types.CREATE_CATEGORY:
       const { newCategory } = action.payload;
-      newCategory.id = state.categories[state.categories.length - 1].id + 1;
-      newCategory.slug = slugify(newCategory.name, { lower: true });
       return {
         ...state,
         categories: [...state.categories, newCategory],
